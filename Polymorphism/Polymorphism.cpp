@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <conio.h>
 // override 
 // virtual function 
 
@@ -32,8 +33,20 @@ void AnimalSay(Animal& obj) {
     obj.Say();
 }
 
+
+static constexpr int KEY_UP = 72;
+static constexpr int KEY_DOWN = 80;
+static constexpr int KEY_LEFT = 75;
+static constexpr int KEY_RIGHT = 77;
+
+
 int main()
 {
+    while (true) {
+
+ 
+    std::cout << static_cast<int>(_getch()) << std::endl;
+}
     Animal a_Obj;
     Dog d_Obj;
     Cat c_Obj;
