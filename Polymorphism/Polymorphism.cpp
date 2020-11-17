@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <conio.h>
+#include <iomanip>
 // override 
 // virtual function 
 
@@ -33,6 +34,10 @@ void AnimalSay(Animal& obj) {
     obj.Say();
 }
 
+void AnimalSayPtr(std::shared_ptr<Animal> object) {
+    object->Say();
+}
+
 
 static constexpr int KEY_UP = 72;
 static constexpr int KEY_DOWN = 80;
@@ -42,11 +47,7 @@ static constexpr int KEY_RIGHT = 77;
 
 int main()
 {
-    while (true) {
 
- 
-    std::cout << static_cast<int>(_getch()) << std::endl;
-}
     Animal a_Obj;
     Dog d_Obj;
     Cat c_Obj;
@@ -59,6 +60,7 @@ int main()
     AnimalSay(d_Obj);
     AnimalSay(c_Obj);
     ///
+    std::cout << std::setfill('*') << std::setw(40) << " C standard pointers " << std::endl;
     Animal* a = new Animal();
     Animal* d = new Dog();
     Animal* c = new Cat();
@@ -71,6 +73,7 @@ int main()
     delete c;
 
     // This is for your infromation // Smart Pointer 
+    std::cout << std::setfill('*') << std::setw(40)<< "  Unique pointers " << std::endl;
     std::unique_ptr<Animal> AN(new Animal);
     std::unique_ptr<Animal> DO(new Dog);
     std::unique_ptr<Animal> CA(new Cat);
@@ -78,8 +81,15 @@ int main()
     AN->Say();
     DO->Say();
     CA->Say();
+    // shared Pointers 
+    std::cout << std::setfill('-') << std::setw(40) << " Shared pointers " << std::endl;
+    std::shared_ptr<Animal> ANs(new Animal);
+    std::shared_ptr<Animal> DOs(new Dog);
+    std::shared_ptr<Animal> CAs(new Cat);
 
-
+    AnimalSayPtr(ANs);
+    AnimalSayPtr(DOs);
+    AnimalSayPtr(CAs);
     return 0;
 }
 
