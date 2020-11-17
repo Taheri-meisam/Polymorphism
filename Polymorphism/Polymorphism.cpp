@@ -17,7 +17,7 @@ public:
 
 class Dog : public Animal{
 public:
-    void Say() {
+    void Say() override {
         std::cout << "Hey, I am Dog and I say woof woof " << std::endl;
     }
 
@@ -25,7 +25,7 @@ public:
 
 class Cat : public Animal {
 public:
-    void Say()  {
+    void Say()  override{
         std::cout << " I am a Cat and I say Meew Meew" << std::endl;
     }
 };
